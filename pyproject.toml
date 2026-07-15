@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pylicense"
+version = "0.1.0"
+description = "Offline licensing framework demo for Python applications"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "cryptography>=42.0.0",
+]
+
+[project.scripts]
+pylicense-keygen = "key_generator.generate_keys:main"
+pylicense-issue = "license_server.issue_license:main"
+pylicense-activate = "activation_tool.main:main"
+pylicense-admin = "admin_cli.main:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
